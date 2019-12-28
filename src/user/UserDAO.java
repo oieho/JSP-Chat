@@ -99,12 +99,8 @@ public class UserDAO {
 			pstmt.setString(5, userGender);
 			pstmt.setString(6, userEmail);
 			pstmt.setString(7, userProfile);
-			rs = pstmt.executeQuery();
-			if(rs.next() || userID.equals("")) {
-				return 0; // 이미 존재하는 회원
-			} else {
-				return 1; // 가입 가능한 회원 아이디
-			}
+			return pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
